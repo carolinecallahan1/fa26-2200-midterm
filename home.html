@@ -10,43 +10,71 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="header-inner">
-
-            <nav class="site-nav" aria-label="Main navigation">
-                <ul>
                     <li>
-                        <a href="home.html">
-                            <img src="images/btulogo.jpg"
-                                 alt="BTU Lab Logo">
-                        </a>
-                    </li>
-                    <li><a href="tools.html">TOOLS</a></li>
-                    <li><a href="woodshop.html">WOOD SHOP</a></li>
-                    <li><a href="sewingtextiles.html">SEWING &amp; TEXTILES</a></li>
-                    <li><a href="electronics.html">ELECTRONICS</a></li>
-                    <li><a href="lasers.html">LASERS</a></li>
-                    <li><a href="3dprinting.html">3D PRINTING</a></li>
-                    <li><a href="cnc.html">CNC</a></li>
-                    <li><a href="mischiefmakers.html">MISCHIEF MAKERS</a></li>
-                    <li><a href="calendar.html">CALENDAR</a></li>
-                    <li><a href="rulespolicies.html">RULES &amp; POLICIES</a></li>
-                    <li><a href="workshops.html">WORKSHOPS</a></li>
-                </ul>
-            </nav>
+   
+<header class="site-header">
+    <div class="header-inner">
 
-        </div>
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <!-- Home logo -->
+                <li>
+                    <a href="home.html">
+                        <img src="images/btulogo.jpg"
+                             alt="BTU Lab Logo">
+                    </a>
+                </li>
+
+                <!-- SPACES dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger"
+                       onclick="return false;">SPACES</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="tools.html">TOOLS</a></li>
+                        <li><a href="woodshop.html">WOOD SHOP</a></li>
+                        <li><a href="sewingtextiles.html">SEWING &amp; TEXTILES</a></li>
+                        <li><a href="electronics.html">ELECTRONICS</a></li>
+                        <li><a href="lasers.html">LASERS</a></li>
+                        <li><a href="3dprinting.html">3D PRINTING</a></li>
+                        <li><a href="cnc.html">CNC</a></li>
+                    </ul>
+                </li>
+
+                <!-- EVENTS dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger"
+                       onclick="return false;">EVENTS</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="calendar.html">CALENDAR</a></li>
+                        <li><a href="workshops.html">WORKSHOPS</a></li>
+                    </ul>
+                </li>
+
+                <!-- FACULTY dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger"
+                       onclick="return false;">FACULTY</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="mischiefmakers.html">MISCHIEF MAKERS</a></li>
+                        <li><a href="rulespolicies.html">RULES &amp; POLICIES</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
     </header>
 
 
     <main class="container">
         <section class="page-intro">
 
-            <h1>HOME</h1>
-
-            <!-- <img src=""
-                 alt="BTU Lab hero"
-                 class="hero-image"> -->
+            <img src="images/blowthingsup.PNG"
+                 alt="BLOW THINGS UP hero"
+                 class="blowthingsup-hero">
 
             <p class="body-text">
                 The ATLAS BTU Lab is an inclusive community
@@ -69,15 +97,15 @@
 
             <article class="panel">
 
-                <img src="images/whoimage.jpg"
-                     alt="photo of people"
-                     class="content-image">
+                <div class="photo-wrapper">
+                    <img src="images/whoimage.jpg"
+                         alt="photo of people"
+                         class="content-image">
 
-                <h2>
                     <img src="images/who.PNG"
                          alt="WHO in cartoon letters"
                          class="heading-image">
-                </h2>
+                </div>
 
                 <p class="body-text">
                     Anyone* can gain access to BTU.
@@ -95,17 +123,18 @@
 
             </article>
 
+
             <article class="panel">
 
-                <img src="images/howimage.jpg"
-                     alt="photo of girl working"
-                     class="content-image">
+                <div class="photo-wrapper">
+                    <img src="images/howimage.jpg"
+                         alt="photo of girl working"
+                         class="content-image">
 
-                <h2>
                     <img src="images/how.PNG"
                          alt="HOW in cartoon letters"
                          class="heading-image">
-                </h2>
+                </div>
 
                 <p class="body-text">
                     New members attend a 20 minute general
@@ -115,17 +144,18 @@
 
             </article>
 
+
             <article class="panel">
 
-                <img src="images/whenimage.jpg"
-                     alt="photo of workshop"
-                     class="content-image">
+                <div class="photo-wrapper">
+                    <img src="images/whenimage.jpg"
+                         alt="photo of workshop"
+                         class="content-image">
 
-                <h2>
                     <img src="images/when.PNG"
                          alt="WHEN in cartoon letters"
                          class="heading-image">
-                </h2>
+                </div>
 
                 <p class="body-text">
                     The orientation* schedule, and all scheduled
@@ -137,17 +167,18 @@
 
             </article>
 
+
             <article class="panel">
 
-                <img src="images/whatimage.jpg"
-                     alt="photo of people working"
-                     class="content-image">
+                <div class="photo-wrapper">
+                    <img src="images/whatimage.jpg"
+                         alt="photo of people working"
+                         class="content-image">
 
-                <h2>
                     <img src="images/what.PNG"
                          alt="WHAT in cartoon letters"
                          class="heading-image">
-                </h2>
+                </div>
 
                 <p class="body-text">
                     Questions: email BTU Lab at
@@ -158,6 +189,7 @@
 
         </section>
 
+
         <section class="section location-section">
 
             <article class="panel">
@@ -166,7 +198,9 @@
                          alt="WHERE in cartoon letters"
                          class="heading-image">
                 </h2>
+
                 <a href="https://www.google.com/maps/place/320+UCB,+Boulder,+CO+80309/@40.0071559,-105.2659053,17z/data=!3m1!4b1!4m5!3m4!1s0x876b8f7e6c2f8d7d:0x5a2e5c5e5e5e5e5e!8m2!3d40.0071559!4d-105.2637166">Map Location</a>
+
                 <address>
                     320 UCB<br>
                     1125 18th St<br>
@@ -178,6 +212,7 @@
         </section>
 
     </main>
+
 
     <footer class="site-footer">
 
