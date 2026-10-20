@@ -1,75 +1,222 @@
+
+/* COLORS AND VARIABLES */
+
 :root {
-    /* Color Palette - 5 Core Colors */
-    --color-primary: #00755a;     /* Sea Green - Main Brand Color */
-    --color-secondary: #d50036;   /* Lipstick Red - Complementary Action Color */
-    --color-accent: #237ab7;      /* Dark Sky Blue - Highlight / Warning Color */
-    --color-neutral: #073B4C;     /* Dark Teal - Neutral Text and Background */
-    --color-highlight: #F2BB05;   /* Amber Gold - Accent / Attention Color */
-    
-    /* Derived Colors for Flexibility */
-    --color-background: color-mix(in srgb, var(--color-neutral) 10%, white);
+    --color-primary: #00755a;
+    --color-secondary: #d50036;
+    --color-accent: #237ab7;
+    --color-neutral: #073B4C;
+    --color-highlight: #F2BB05;
+    --color-background: #f1f6f5;
     --color-text-dark: var(--color-neutral);
-    --color-text-light: white;
+    --color-text-light: #fff;
 
-    /* Typography */
-    --font-primary: 'Helvetica Neue Medium', -apple-system, BlinkMacSystemFont, sans-serif;
-    /* Sticking with one font currently: --font-secondary: Georgia, 'Times New Roman', serif; */ 
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    /* Spacing System */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
+    --spacing-xs: .25rem;
+    --spacing-sm: .5rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;
 
-    /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+
+/* GENERAL STYLES */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-primary);
-    line-height: 1.6;
-    background-color: var(--color-background);
+    margin: 0;
+    background: var(--color-background);
     color: var(--color-text-dark);
-    padding: var(--spacing-xl);
+    font: 1rem/1.6 var(--font-primary);
+}
+
+img,
+svg,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+    height: auto;
+}
+
+a {
+    color: var(--color-primary);
+    text-underline-offset: .2em;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 4px;
+}
+
+p {
+    margin: 0 0 1rem;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: min(100% - 2rem, 1120px);
+    margin-inline: auto;
 }
 
-/* Typography Styles */
-h1 {
-    font-family: var(--font-primary);
-    font-size: 3rem;
+main {
+    padding-block: 2.5rem 4rem;
+}
+
+
+/* HEADER AND NAVIGATION */
+
+.site-header {
+    background: #fff;
+    border-bottom: 4px solid var(--color-neutral);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.site-logo {
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--color-neutral);
+    text-decoration: none;
+    letter-spacing: -.05em;
+}
+
+.site-nav {
+    width: 100%;
+}
+
+.site-nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.site-nav ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: var(--spacing-md);
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: var(--color-highlight);
+    color: var(--color-neutral);
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
+}
+
+.site-nav ul li a:hover,
+.site-nav ul li a[aria-current="page"] {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* Navigation Logo */
+
+.site-nav ul li:first-child {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.site-nav ul li:first-child a {
+    padding: 4px;
+}
+
+.site-nav ul li:first-child img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    max-width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+/* Navigation Mobile */
+
+@media (max-width: 1100px) {
+    .site-nav {
+        overflow-x: auto;
+    }
+
+    .site-nav ul {
+        justify-content: flex-start;
+        width: max-content;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-inner {
+        align-items: flex-start;
+    }
+}
+
+
+/* HEADINGS AND TEXT */
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    margin: 0 0 1rem;
+}
+
+h1 {
+    font-size: clamp(3.5rem, 11vw, 8.5rem);
+    font-weight: 900;
+    letter-spacing: -.07em;
+    text-transform: uppercase;
     color: var(--color-primary);
+    -webkit-text-stroke: 1px var(--color-neutral);
 }
 
 h2 {
-    font-family: var(--font-primary);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -.045em;
+    text-transform: uppercase;
     color: var(--color-secondary);
 }
 
 h3 {
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-accent);
+    font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    color: var(--color-neutral);
 }
 
 .body-text {
@@ -78,20 +225,1121 @@ h3 {
 }
 
 .small-text {
-    font-size: 0.75rem;
-    color: color-mix(in srgb, var(--color-text-dark) 70%, transparent);
+    font-size: .875rem;
+    color: var(--color-neutral);
 }
 
-/* Color Palette Section */
+.link {
+    color: var(--color-primary);
+}
+
+.link:hover {
+    color: var(--color-secondary);
+}
+
+
+/* PAGE LAYOUT */
+
+.page-intro {
+    margin-bottom: 2.5rem;
+    border-bottom: 3px solid var(--color-neutral);
+    padding-bottom: 1.25rem;
+}
+
+.page-intro h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section {
+    margin-block: 2.5rem;
+}
+
+.section-title {
+    display: inline-block;
+    transform: rotate(-2deg);
+}
+
+.panel {
+    background: #fff;
+    border: 3px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    padding: clamp(1rem, 3vw, 2rem);
+    box-shadow: 6px 6px 0 var(--color-highlight);
+}
+
+
+/* SHARED IMAGE STYLES */
+
+/* Page Hero Images */
+
+.tools-hero,
+.woodshop-hero,
+.textiles-hero,
+.electronics-hero,
+.lasers-hero,
+.printing-hero,
+.cnc-hero,
+.mischief-hero,
+.calendar-hero,
+.rules-hero,
+.workshops-hero {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    margin: 20px auto 30px;
+}
+
+/* Content Photos */
+
+.tools-photo,
+.woodshop-photo,
+.textiles-photo {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    height: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    margin: 0 auto 25px;
+}
+
+/* Heading Images */
+
+h2 img {
+    display: inline-block;
+    width: auto;
+    max-width: 180px;
+    max-height: 90px;
+    height: auto;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.heading-image {
+    display: inline-block;
+    width: auto;
+    max-width: 160px;
+    max-height: 80px;
+    height: auto;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* Other Images */
+
+.content-image,
+.panel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.site-logo img,
+.icon-image {
+    display: inline-block;
+    width: auto;
+    max-width: 120px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+
+/* BUTTONS */
+
+.button {
+    display: inline-block;
+    padding: .7rem 1.1rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: var(--color-neutral);
+    color: #fff;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+
+/* FOOTER */
+
+.site-footer {
+    border-top: 4px solid var(--color-neutral);
+    background: #fff;
+    padding: 2rem 0;
+}
+
+
+/* HOMEPAGE */
+
+/* Intro Cards */
+
+.home-intro {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.home-intro > :first-child {
+    background: white;
+}
+
+.location-panel {
+    min-height: 230px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Spaces Cards */
+
+.spaces-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.space-card {
+    min-height: 170px;
+    display: flex;
+    align-items: end;
+    padding: 1.25rem;
+    background: #fff;
+    border: 3px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    box-shadow: 5px 5px 0 var(--color-highlight);
+}
+
+.space-card:nth-child(3n + 2) {
+    box-shadow: 5px 5px 0 var(--color-accent);
+}
+
+.space-card:nth-child(3n) {
+    box-shadow: 5px 5px 0 var(--color-secondary);
+}
+
+.space-card h2,
+.space-card h3 {
+    margin: 0;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+}
+
+.space-card a {
+    color: var(--color-neutral);
+}
+
+.space-card img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+/* Rules, Events and Faculty */
+
+.rules-section {
+    margin-top: 2.5rem;
+}
+
+.events-stack,
+.faculty-stack {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.events-stack > section:first-child {
+    border-top: 8px solid var(--color-highlight);
+}
+
+.events-stack > section:last-child {
+    border-top: 8px solid var(--color-accent);
+}
+
+.faculty-stack > section:nth-child(1) {
+    border-left: 8px solid var(--color-primary);
+}
+
+.faculty-stack > section:nth-child(2) {
+    border-left: 8px solid var(--color-accent);
+}
+
+.faculty-stack > section:nth-child(3) {
+    border-left: 8px solid var(--color-secondary);
+}
+
+/* Homepage Mobile */
+
+@media (max-width: 700px) {
+    .home-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .spaces-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .space-card {
+        min-height: 130px;
+    }
+}
+
+@media (max-width: 440px) {
+    .spaces-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .space-card {
+        min-height: 105px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        text-align: center;
+    }
+}
+
+
+/* TOOLS PAGE */
+
+/* Equipment List */
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 24px;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.equipment-list li {
+    background: white;
+    color: var(--color-neutral);
+    padding: 12px 16px;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    box-shadow: 3px 3px 0 var(--color-highlight);
+}
+
+/* Equipment List Mobile */
+
+@media (max-width: 800px) {
+    .equipment-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .equipment-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .equipment-list li {
+        padding: 10px 12px;
+    }
+}
+
+
+/* WOOD SHOP PAGE */
+
+/* Wood Shop Policies */
+
+.policy-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: var(--spacing-lg);
+}
+
+.policy-list > li {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.policy-sublist {
+    list-style-type: circle;
+    padding-left: 25px;
+    margin-top: var(--spacing-md);
+}
+
+.policy-sublist li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Wood Shop Mobile */
+
+@media (max-width: 600px) {
+    .policy-list {
+        padding-left: 20px;
+    }
+
+    .policy-sublist {
+        padding-left: 18px;
+    }
+
+    .woodshop-photo {
+        object-fit: cover;
+    }
+}
+
+
+/* SEWING AND TEXTILES PAGE */
+
+.textiles-yellow {
+    color: var(--color-neutral);
+    background: var(--color-highlight);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+/* Textiles Mobile */
+
+@media (max-width: 600px) {
+    .textiles-photo {
+        object-fit: cover;
+    }
+}
+
+
+/* ELECTRONICS PAGE */
+
+.electronics-color {
+    display: inline-block;
+    color: var(--color-neutral);
+    background: #9de5ed;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+
+/* LASERS PAGE */
+
+/* Laser Labels */
+
+.lasers-red {
+    display: inline-block;
+    color: #fff;
+    background: var(--color-secondary);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+/* Laser Access Steps */
+
+.access-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    list-style: none;
+    counter-reset: laser-step;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.access-steps li {
+    counter-increment: laser-step;
+    position: relative;
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    box-shadow: 4px 4px 0 var(--color-highlight);
+    padding: 20px 20px 20px 60px;
+    line-height: 1.6;
+}
+
+.access-steps li::before {
+    content: counter(laser-step);
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+/* Lazor Wizards Contact */
+
+.wizard-emails {
+    background: var(--color-background);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* Lasers Mobile */
+
+@media (max-width: 600px) {
+    .access-steps {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .access-steps li {
+        padding: 16px 14px 16px 55px;
+    }
+
+    .access-steps li::before {
+        top: 14px;
+        left: 12px;
+    }
+
+    .wizard-emails {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* 3D PRINTING PAGE */
+
+/* Purple Equipment Labels */
+
+.printing-purple {
+    display: inline-block;
+    color: #fff;
+    background: #713b91;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+/* Printing Policies */
+
+.printing-policy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.printing-policy-list li {
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-left: 6px solid #713b91;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    line-height: 1.7;
+    box-shadow: 3px 3px 0 var(--color-highlight);
+}
+
+/* Printing Mobile */
+
+@media (max-width: 600px) {
+    .printing-policy-list {
+        gap: 10px;
+    }
+
+    .printing-policy-list li {
+        padding: 12px 14px;
+    }
+}
+
+
+/* CNC PAGE */
+
+.cnc-blue {
+    display: inline-block;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+
+/* MISCHIEF MAKERS PAGE */
+
+/* Staff Directory */
+
+.staff-section-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.3;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: var(--spacing-lg);
+}
+
+/* Staff Cards */
+
+.staff-card {
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    box-shadow: 5px 5px 0 var(--color-highlight);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.staff-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 190px;
+    background: var(--color-background);
+    color: var(--color-primary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-neutral);
+}
+
+.staff-photo {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 2px solid var(--color-neutral);
+}
+
+.staff-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.staff-info h3 {
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.staff-role {
+    color: var(--color-neutral);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0;
+}
+
+.staff-email {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.staff-email a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.staff-email a:hover {
+    color: var(--color-secondary);
+}
+
+.staff-info h4 {
+    color: var(--color-neutral);
+    font-size: 1rem;
+    margin: 10px 0 0;
+}
+
+/* Staff Skills */
+
+.staff-skills {
+    list-style: disc;
+    padding-left: 22px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.staff-skills li {
+    color: var(--color-neutral);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Staff Tablet */
+
+@media (max-width: 800px) {
+    .staff-grid {
+        gap: 18px;
+    }
+
+    .staff-info {
+        padding: 16px;
+    }
+
+    .staff-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .staff-photo,
+    .staff-photo-placeholder {
+        height: 160px;
+    }
+}
+
+/* Staff Mobile */
+
+@media (max-width: 600px) {
+    .staff-section-title {
+        font-size: 1.6rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .staff-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .staff-photo,
+    .staff-photo-placeholder {
+        height: 180px;
+    }
+
+    .staff-photo-placeholder {
+        font-size: 3rem;
+    }
+
+    .staff-info {
+        padding: 18px;
+        gap: 10px;
+    }
+
+    .staff-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .staff-role,
+    .staff-skills li,
+    .staff-email {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* CALENDAR PAGE */
+
+/* Calendar Embed */
+
+.calendar-panel {
+    width: 100%;
+    min-width: 0;
+}
+
+.calendar-panel h2 {
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.calendar-container {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    box-shadow: 5px 5px 0 var(--color-highlight);
+}
+
+.google-calendar {
+    display: block;
+    width: 100%;
+    height: 650px;
+    border: none;
+    background: white;
+}
+
+.calendar-note {
+    margin-top: var(--spacing-lg);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-neutral);
+}
+
+.calendar-note a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.calendar-note a:hover {
+    color: var(--color-secondary);
+}
+
+/* Calendar Mobile */
+
+@media (max-width: 800px) {
+    .google-calendar {
+        height: 550px;
+    }
+}
+
+@media (max-width: 600px) {
+    .calendar-panel {
+        padding: 14px;
+    }
+
+    .google-calendar {
+        height: 500px;
+    }
+
+    .calendar-note {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* RULES AND POLICIES PAGE */
+
+/* Main Rule */
+
+.rules-intro-panel {
+    text-align: center;
+}
+
+.rules-main-statement {
+    display: inline-block;
+    background: var(--color-highlight);
+    color: var(--color-neutral);
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    padding: 20px 35px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+/* Ways to Be Cool */
+
+.rules-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.rules-list li {
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-left: 6px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    line-height: 1.6;
+    color: var(--color-neutral);
+    box-shadow: 3px 3px 0 var(--color-highlight);
+}
+
+/* Lab Policies */
+
+.policies-list {
+    list-style: none;
+    counter-reset: policy-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.policies-list li {
+    counter-increment: policy-counter;
+    position: relative;
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    padding: 20px 20px 20px 70px;
+    line-height: 1.6;
+    color: var(--color-neutral);
+    box-shadow: 3px 3px 0 var(--color-highlight);
+}
+
+.policies-list li::before {
+    content: counter(policy-counter);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+/* Rules Tablet */
+
+@media (max-width: 800px) {
+    .rules-list {
+        grid-template-columns: 1fr;
+    }
+
+    .rules-main-statement {
+        font-size: 2rem;
+        padding: 18px 25px;
+    }
+}
+
+/* Rules Mobile */
+
+@media (max-width: 600px) {
+    .rules-main-statement {
+        font-size: 1.7rem;
+        padding: 15px 20px;
+    }
+
+    .rules-list {
+        gap: 12px;
+    }
+
+    .rules-list li {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .policies-list {
+        gap: 12px;
+    }
+
+    .policies-list li {
+        padding: 16px 16px 16px 60px;
+        font-size: 0.95rem;
+    }
+
+    .policies-list li::before {
+        left: 14px;
+        top: 15px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* WORKSHOPS PAGE */
+
+/* Workshop Proposal Steps */
+
+.workshop-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    list-style: none;
+    counter-reset: workshop-counter;
+    padding: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.workshop-steps li {
+    counter-increment: workshop-counter;
+    position: relative;
+    background: white;
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    padding: 65px 22px 25px;
+    box-shadow: 5px 5px 0 var(--color-highlight);
+    min-width: 0;
+}
+
+.workshop-steps li::before {
+    content: counter(workshop-counter);
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.workshop-steps h3 {
+    color: var(--color-primary);
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.workshop-steps p {
+    color: var(--color-neutral);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.workshop-steps a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.workshop-steps a:hover {
+    color: var(--color-secondary);
+}
+
+/* Workshop Confirmation */
+
+.workshop-confirmation {
+    text-align: center;
+}
+
+.workshop-confirmation h2 {
+    color: var(--color-secondary);
+    font-size: 2rem;
+}
+
+/* Workshop Links */
+
+.workshop-link,
+.workshop-calendar-link {
+    display: inline-block;
+    background: var(--color-highlight);
+    color: var(--color-neutral);
+    border: 2px solid var(--color-neutral);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: var(--spacing-md);
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.workshop-link:hover,
+.workshop-calendar-link:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.workshop-link:focus-visible,
+.workshop-calendar-link:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Workshops Tablet */
+
+@media (max-width: 800px) {
+    .workshop-steps {
+        gap: 15px;
+    }
+
+    .workshop-steps li {
+        padding: 65px 18px 20px;
+    }
+
+    .workshop-steps h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Workshops Mobile */
+
+@media (max-width: 600px) {
+    .workshop-steps {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .workshop-steps li {
+        padding: 60px 18px 20px;
+    }
+
+    .workshop-steps li::before {
+        top: 15px;
+        left: 18px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .workshop-steps p {
+        font-size: 0.95rem;
+    }
+
+    .workshop-confirmation h2 {
+        font-size: 1.6rem;
+    }
+
+    .workshop-link,
+    .workshop-calendar-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* OTHER STYLES */
+
+/* Color Palette */
+
 .color-palette {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .color-swatch {
-    padding: var(--spacing-md);
+    padding: 1rem;
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
@@ -100,54 +1348,84 @@ h3 {
     text-align: center;
 }
 
-/* Component Styles */
-.button {
-    display: inline-block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: background-color 0.3s ease, transform 0.2s;
-    border: 2px solid transparent;
-}
+/* Spacing Demo */
 
-.button:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 80%, black);
-    border-color: var(--color-secondary);
-    transform: scale(1.05);
-}
-
-.button:active {
-    transform: scale(0.95);
-    background-color: var(--color-secondary);
-}
-
-.link {
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration-color 0.3s;
-}
-
-.link:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-    text-decoration-color: var(--color-highlight);
-}
-
-.link:visited {
-    color: var(--color-neutral);
-}
-
-/* Spacing Demonstration */
 .spacing-demo {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    gap: .5rem;
+    margin-bottom: 1rem;
 }
 
 .spacing-block {
-    background-color: var(--color-primary);
+    background: var(--color-primary);
     height: 50px;
+}
+
+
+/* GENERAL MOBILE STYLES */
+
+@media (max-width: 700px) {
+    main {
+        padding-block: 1.5rem 3rem;
+    }
+
+    .panel {
+        box-shadow: 4px 4px 0 var(--color-highlight);
+    }
+}
+
+@media (max-width: 600px) {
+    .page-intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .tools-hero,
+    .woodshop-hero,
+    .textiles-hero,
+    .electronics-hero,
+    .lasers-hero,
+    .printing-hero,
+    .cnc-hero,
+    .mischief-hero,
+    .calendar-hero,
+    .rules-hero,
+    .workshops-hero {
+        max-width: 100%;
+        max-height: 220px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .tools-photo,
+    .woodshop-photo,
+    .textiles-photo {
+        max-width: 100%;
+        height: 220px;
+        max-height: 220px;
+    }
+}
+
+@media (max-width: 440px) {
+    .container {
+        width: min(100% - 1.5rem, 1120px);
+    }
+
+    h2 img,
+    .heading-image {
+        max-width: 125px;
+        max-height: 65px;
+    }
+
+    .hero-image {
+        max-height: 240px;
+    }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
