@@ -110,6 +110,7 @@ main {
 
 .site-nav {
     width: 100%;
+    align-items: center;
 }
 
 .site-nav > ul {
