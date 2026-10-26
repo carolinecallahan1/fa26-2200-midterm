@@ -1981,15 +1981,3 @@ h2 img {
     }
 }
 
-@media (max-width: 600px) {
-
-    .blowthingsup-hero {
-        display: block;
-        width: 85%;
-        max-width: 320px;
-        height: auto;
-        max-height: none;
-        object-fit: contain;
-        margin: 20px auto 30px;
-    }
-}
