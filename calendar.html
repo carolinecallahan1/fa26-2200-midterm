@@ -12,62 +12,69 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="header-inner">
+<header class="site-header">
+    <div class="header-inner">
+      
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul class="main-nav">
 
-            <nav class="site-nav" aria-label="Main navigation">
-            <ul>
-                <!-- Home logo -->
                 <li>
-                    <a href="home.html">
-                        <img src="images/btulogo.jpg"
-                             alt="BTU Lab Logo">
+                    <a href="home.html" class="nav-logo">
+                        <img src="images/btulogo.jpg" alt="BTU Lab Home">
                     </a>
                 </li>
 
-                <!-- SPACES dropdown -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger"
-                       onclick="return false;">SPACES</a>
+                    <details>
+                        <summary>
+                            SPACES
+                            <span class="dropdown-arrow" aria-hidden="true"></span>
+                        </summary>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="tools.html">TOOLS</a></li>
-                        <li><a href="woodshop.html">WOOD SHOP</a></li>
-                        <li><a href="sewingtextiles.html">SEWING &amp; TEXTILES</a></li>
-                        <li><a href="electronics.html">ELECTRONICS</a></li>
-                        <li><a href="lasers.html">LASERS</a></li>
-                        <li><a href="3dprinting.html">3D PRINTING</a></li>
-                        <li><a href="cnc.html">CNC</a></li>
-                    </ul>
+                        <ul class="dropdown-menu">
+                            <li><a href="tools.html" aria-current="page">Tools</a></li>
+                            <li><a href="woodshop.html">Wood Shop</a></li>
+                            <li><a href="sewingtextiles.html">Sewing &amp; Textiles</a></li>
+                            <li><a href="electronics.html">Electronics</a></li>
+                            <li><a href="lasers.html">Lasers</a></li>
+                            <li><a href="3dprinting.html">3D Printing</a></li>
+                            <li><a href="cnc.html">CNC</a></li>
+                        </ul>
+                    </details>
                 </li>
 
-                <!-- EVENTS dropdown -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger"
-                       onclick="return false;">EVENTS</a>
+                    <details>
+                        <summary>
+                            EVENTS
+                            <span class="dropdown-arrow" aria-hidden="true"></span>
+                        </summary>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="calendar.html">CALENDAR</a></li>
-                        <li><a href="workshops.html">WORKSHOPS</a></li>
-                    </ul>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="workshops.html">Workshops</a></li>
+                        </ul>
+                    </details>
                 </li>
 
-                <!-- FACULTY dropdown -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger"
-                       onclick="return false;">FACULTY</a>
+                    <details>
+                        <summary>
+                            FACULTY
+                            <span class="dropdown-arrow" aria-hidden="true"></span>
+                        </summary>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="mischiefmakers.html">MISCHIEF MAKERS</a></li>
-                        <li><a href="rulespolicies.html">RULES &amp; POLICIES</a></li>
-                    </ul>
+                        <ul class="dropdown-menu">
+                            <li><a href="mischiefmakers.html">Mischief Makers</a></li>
+                            <li><a href="rulespolicies.html">Rules &amp; Policies</a></li>
+                        </ul>
+                    </details>
                 </li>
 
             </ul>
         </nav>
-
-        </div>
-    </header>
+    </div> 
+</header>
 
     <main class="container">
 
