@@ -1981,3 +1981,50 @@ h2 img {
     }
 }
 
+/* HOMEPAGE MOBILE FIXES */
+
+@media (max-width: 600px) {
+
+    /* Smaller Title Images */
+
+    h2 img,
+    .heading-image {
+        display: block;
+        width: auto;
+        max-width: 160px;
+        max-height: 90px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto 15px;
+    }
+
+    /* Keep Titles Separate From Paragraphs */
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    h2:has(img) {
+        line-height: 1;
+    }
+}
+
+/* HOMEPAGE MOBILE TITLE IMAGES */
+
+@media (max-width: 600px) {
+
+    .heading-image {
+        display: block;
+        width: auto;
+        max-width: 150px;
+        max-height: 90px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto 15px;
+    }
+
+    h2:has(.heading-image) {
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+}
