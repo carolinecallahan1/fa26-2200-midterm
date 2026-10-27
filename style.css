@@ -289,7 +289,6 @@ h3 {
 .woodshop-hero,
 .textiles-hero,
 .electronics-hero,
-.lasers-hero,
 .printing-hero,
 .cnc-hero,
 .mischief-hero,
@@ -313,6 +312,17 @@ h3 {
     max-height: 500px;
     object-fit: contain;
     margin: 20px auto 30px;
+}
+
+.lasers-hero {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    margin: 20px auto 30px;
+    object-position: top;
 }
 
 /* Content Photos */
